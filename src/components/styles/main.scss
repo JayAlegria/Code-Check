@@ -1,3 +1,9 @@
+// Colors
+@import 'colors';
+@import "~bootstrap/scss/bootstrap";
+
+@import 'typography';
+
 // Clear defaults
 * {
     &:focus,
@@ -12,6 +18,10 @@
 a {
     color: inherit; 
     text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 ul {
@@ -20,18 +30,53 @@ ul {
 
 button {
     border: none !important;
+    font-size: .9rem !important;
+    padding: 5px 20px !important;
+
+    &.naked {
+        border: 0;
+        background-color: transparent;
+        color: $dark;
+    }
 }
 
-// Bootstrap Override Design
-// colors 
-$secondary:  #2F2F2F;
+.btn-blue-transparent {
+    border: 1px solid $cobalt;
+    color: $cobalt;
+    font-size: .9rem !important;
+    padding: 5px 20px !important;
+}
 
-// Border
+.border-rounded {
+    border-radius: 20px;
+}
+
+.divider {
+    height: 1px;
+    background: #ddd;
+    width: 100%;
+    margin: 10px 0 20px;
+}
+
+// Override boostrap
+.card {
+    border: 0;
+}
+
 
 
 // Dashboard 
 .dashboard {
-    height: 100vh;
+    height: 100vh;  
+
+    .logo {
+
+        img {
+            height: 100%;
+            width: 100%;
+            display: inline-block;
+        }
+    }
 
     .sidebar {
         height: 100vh;
@@ -47,9 +92,157 @@ $secondary:  #2F2F2F;
             &:hover {
                 background-color: #434343
             }
+            a {
+                color: #fff;
+            }
+        }
+    }
+
+    .content {
+
+        &__navigation {
+            .nav-link {
+                padding: 1rem 1rem;
+            }
+            .dropdown {
+                img {
+                    max-height: 100px;
+                    max-width: 100px;
+                }
+                .dropdown-menu  {
+                    min-width: 300px;
+                    padding: 25px;
+                    border: 0;
+                    border-radius: 20px;
+                    box-shadow: 0px 2px 10px 0px #ddd;
+                    
+
+                    
+                    .dropdown-item {
+                        font-weight: 300;
+                        padding-left: 0;
+
+                        &:hover {
+                            background: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        .banner {
+            border-radius: 20px;
+            border: 0;
+            background-color: #E7FAFA;
+        }
+        &__body {
+            .create-project {
+                .card {
+                    min-width: 250px;
+                    min-height:250px;
+                    border-radius: 20px;
+                    border: 2px dashed $creme;
+                }
+            }
+        }
+    }
+
+    .conversation {
+
+        border: 1px solid $creme;
+
+        &__list {
+            border-bottom: 1px solid $creme;
+            img {
+                height: 50px;
+                width: 50px;
+                object-fit: contain;
+                border-radius: 50%;
+                padding: 12px;
+            }
+            &.received {
+
+                text-align: left;
+                img {
+                    background-color: rgba(255, 44, 83, 0.5);
+                }
+
+                .conversation__content {
+                    margin-left: 15px;
+                    .head {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.sent {
+
+                text-align: right;
+                flex-direction: row-reverse;
+                img {
+                    background-color: rgba(68, 145, 245, 0.5);
+                }
+
+                .conversation__content {
+                    margin-right: 15px;
+                    .head {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: row-reverse;
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__reply {
+            textarea {
+                background: #f8f8f8;
+                border: none;
+            }
         }
     }
 }
 
+.create-project {
+    form {
+        textarea {
+            resize: none;
+        }
+          
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        input {
+            font-weight: 300;
+            font-size: 16px;
+        }
 
-@import "~bootstrap/scss/bootstrap";
+        label {
+            color: #6c757d;
+        }
+        input::placeholder,
+        textarea::placeholder, select {
+            color: #6c757d;
+            font-size: .8rem;
+            font-weight: 200;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: transparent;
+            background-image: url("data:image/svg+xml;utf8,<svg width='15' height='15' aria-hidden='true' focusable='false' data-prefix='fal' data-icon='chevron-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512' class='svg-inline--fa fa-chevron-down fa-w-14 fa-3x'><path fill='red' d='M443.5 162.6l-7.1-7.1c-4.7-4.7-12.3-4.7-17 0L224 351 28.5 155.5c-4.7-4.7-12.3-4.7-17 0l-7.1 7.1c-4.7 4.7-4.7 12.3 0 17l211 211.1c4.7 4.7 12.3 4.7 17 0l211-211.1c4.8-4.7 4.8-12.3.1-17z'></path></svg>");
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: 8px;
+          }
+          
+    }
+}

@@ -1,0 +1,132 @@
+// Colors
+@import 'colors';
+@import "~bootstrap/scss/bootstrap";
+@import 'typography';
+
+// Clear defaults
+* {
+    &:focus,
+    &:active {
+        outline: none;
+    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit; 
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none !important;
+    font-size: .9rem !important;
+    padding: 5px 20px !important;
+}
+
+.btn-blue-transparent {
+    border: 1px solid $cobalt;
+    color: $cobalt;
+    font-size: .9rem !important;
+    padding: 5px 20px !important;
+}
+
+.border-rounded {
+    border-radius: 20px;
+}
+
+.diver {
+    height: 1px;
+    background: #ddd;
+    width: 100%;
+}
+
+// Override boostrap
+.card {
+    border: 0;
+}
+
+
+
+// Dashboard 
+.dashboard {
+    height: 100vh;  
+
+    .content__body {
+        .create-project {
+            .card {
+                min-width: 250px;
+                min-height:250px;
+                border-radius: 20px;
+                border: 2px dashed $creme;
+            }
+        }
+    }
+
+    .conversation {
+
+        border: 1px solid $creme;
+
+        &__list {
+            border-bottom: 1px solid $creme;
+            img {
+                height: 50px;
+                width: 50px;
+                object-fit: contain;
+                border-radius: 50%;
+                padding: 12px;
+            }
+            &.received {
+
+                text-align: left;
+                img {
+                    background-color: rgba(255, 44, 83, 0.5);
+                }
+
+                .conversation__content {
+                    margin-left: 15px;
+                    .head {
+                        display: flex;
+                        align-items: center;
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+
+            &.sent {
+
+                text-align: right;
+                flex-direction: row-reverse;
+                img {
+                    background-color: rgba(68, 145, 245, 0.5);
+                }
+
+                .conversation__content {
+                    margin-right: 15px;
+                    .head {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: row-reverse;
+                        span {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__reply {
+            textarea {
+                background: #f8f8f8;
+                border: none;
+            }
+        }
+    }
+}
